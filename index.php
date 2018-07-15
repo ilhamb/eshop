@@ -24,9 +24,9 @@
 
   <!-- Start of Header -->
   <?php
-  require "infos.php";
-  include "header.php";
-  include "nav.php";
+  require "template/infos.php";
+  include "template/header.php";
+  include "template/nav.php";
   ?>
   <!-- End of Header -->
 
