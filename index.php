@@ -38,7 +38,7 @@
 
   <!-- Start of Footer -->
   <?php
-  include "footer.php";
+  include "template/footer.php";
   ?>
   <!-- End of Footer -->
 
