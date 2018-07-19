@@ -1,7 +1,9 @@
 <!-- Start of Footer -->
 <footer class="jumbotron jumbotron-fluid text-center">
   <div class="container">
-  <p class="lead">Réalisation <?php echo $author ?></p>
+  <?php
+  echo '<p class="lead">Réalisation ' . $author . '</p>';
+  ?>
   </div>
 </footer>
 <!-- End of Footer -->
