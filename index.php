@@ -22,12 +22,38 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 
-  <!-- Start of Header -->
   <?php
-  require "template/infos.php";
-  include "template/header.php";
-  include "template/nav.php";
-  ?>
+    require "products.php";
+   ?>
+
+  <!-- Template loading -->
+  <?php
+    require "template/nav.php";
+    require "template/header.php";
+   ?>
+
+   <!-- Main Content -->
+   <main class="container my-5">
+     <h2>Accueil</h2>
+     <?php
+        foreach ($products as $key => $product) {
+          echo "<article>
+            <h3>" . $product["name"] . "</h3>
+            <p>" . $product["price"] . "</p>";
+            if($product["stock"]){
+              echo "<p>Disponible</p>";
+            }
+            else {
+              echo "<p>Indisponible</p>";
+            }
+          echo "<a href='single.php?index=$key'>Voir le produit</a></article>";
+        }
+      ?>
+   </main>
+   <!-- Footer loading -->
+   <?php
+     require "template/footer.php";
+    ?>
   <!-- End of Header -->
 
   <!-- Start of Main -->
