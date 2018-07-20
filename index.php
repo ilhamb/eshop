@@ -1,6 +1,8 @@
   <?php
-    require "products.php";
     require "template/infos.php";
+    $bdd = new PDO('mysql:host=localhost;dbname=correctionphp;charset=utf8', 'root', 'root');
+    $reponse = $bdd->query("SELECT * FROM product");
+    $products = $reponse->fetchall(PDO::FETCH_ASSOC);
    ?>
 
   <!-- Template loading -->
@@ -14,44 +16,17 @@
      <h2>Accueil</h2>
      <?php
         foreach ($products as $key => $product) {
-          echo "<article>
-            <h3>" . $product["name"] . "</h3>
-            <p>" . $product["price"] . "</p>";
-            if($product["stock"]){
-              echo "<p>Disponible</p>";
-            }
-            else {
-              echo "<p>Indisponible</p>";
-            }
-          echo "<a href='single.php?index=$key'>Voir le produit</a></article>";
+     ?>
+     <div class="card">
+       <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+       <div class="card-body">
+         <h5 class="card-title"><?php echo $product["name"]; ?></h5>
+         <p class="card-text"><?php echo $product["description"]; ?></p>
+         <p class="card-text"><small class="text-muted"><a href=<?php echo "single.php?index=" . $product['id']?>>Voir le produit</a></small></p>
+     </div>
+      <?php
         }
       ?>
-      <div class="card-deck">
-        <div class="card">
-          <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
     </main>
   <!-- End of Main -->
 

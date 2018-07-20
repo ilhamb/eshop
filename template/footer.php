@@ -2,7 +2,7 @@
 <footer class="jumbotron jumbotron-fluid text-center">
   <div class="container">
   <?php
-  echo '<p class="lead">Réalisation ' . $author . '</p>';
+  echo '<p class="lead">Réalisation ' . $infos["author"] . '</p>';
   ?>
   </div>
 </footer>
